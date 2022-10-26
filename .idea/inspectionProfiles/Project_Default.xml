@@ -1,0 +1,27 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyPep8Inspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="E231" />
+          <option value="W292" />
+          <option value="E722" />
+          <option value="E302" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="object.duenio" />
+          <option value="Ejercicio_2.LinkedStackExt.*" />
+          <option value="list.is_empty" />
+          <option value="typing.Iterator.__getitem__" />
+          <option value="Ejercicio1_2.LinkedBinaryTreeExtAbstract.data_structures" />
+          <option value="Ejercicio1_2.LinkedBinaryTreeExt.data_structures" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

@@ -1,4 +1,4 @@
-from data_structures import BinaryTreeNode
+from python_ed_fcad_uner.data_structures import BinaryTreeNode
 from LinkedBinaryTreeExt import LinkedBinaryTreeExt
 nodo_a = BinaryTreeNode('A')
 nodo_b = BinaryTreeNode('B')

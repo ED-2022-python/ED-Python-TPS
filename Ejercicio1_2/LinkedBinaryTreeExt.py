@@ -19,6 +19,8 @@ class LinkedBinaryTreeExt(LinkedBinaryTree,LinkedBinaryTreeExtAbstract):
         pass
     def internos(self) -> List[Any]:
         pass
+
+    ##agregoooooooooooooooooooo
     def profundidad(self, nodo : BinaryTreeNode) -> int:
         pass
     def altura(self, nodo : BinaryTreeNode) -> int:

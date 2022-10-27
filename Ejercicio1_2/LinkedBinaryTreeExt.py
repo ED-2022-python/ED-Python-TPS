@@ -8,11 +8,8 @@ class LinkedBinaryTreeExt(LinkedBinaryTree,LinkedBinaryTreeExtAbstract):
         #Si el nodo que vamos a insertar nodo1 cual es su padre?
         #nodo 2 cual es su padre? 
         #si los padres son == entonces 👌 hermanos
-        # si son equals? no son hermanos.
-
-
-        
-        pass
+        # si son equals?no son hermanos.
+        return self._search_parent(nodo1).__eq__(self._search_parent(nodo2))
 
     def hojas(self) -> List[Any]:
         # un nodo es hoja cuando no tiene hijos. no es padre

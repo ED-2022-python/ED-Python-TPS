@@ -1,5 +1,5 @@
 from typing import Any, List
-from Ejercicio1_2.LinkedBinaryTreeExtAbstract import LinkedBinaryTreeExtAbstract
+from LinkedBinaryTreeExtAbstract import LinkedBinaryTreeExtAbstract
 from python_ed_fcad_uner.data_structures import LinkedBinaryTree, BinaryTreeNode
 
 class LinkedBinaryTreeExt(LinkedBinaryTree,LinkedBinaryTreeExtAbstract):

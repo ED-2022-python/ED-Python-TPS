@@ -13,8 +13,6 @@ class UnsortedPriorityQueueAbstract(ABC):
     @abstractmethod
     def is_empty(self) -> bool:
         """ Indica si la estructura está vacía o no.
-        Página 3 de 4
-        Estructura De Datos - 2022 Trabajo Práctico N.º 4
         Returns:
         bool: True si está vacía. False en caso contrario.
         """
@@ -22,8 +20,7 @@ class UnsortedPriorityQueueAbstract(ABC):
     @abstractmethod
     def add(self, k: Any, v: Any) -> None:
         """ Inserta un nuevo ítem al final de la estructura.
-        Args:
-        k (Any): Clave que determina la prioridad del ítem.
+        Args: k (Any): Clave que determina la prioridad del ítem.
         v (Any): Valor del ítem.
         """
     pass

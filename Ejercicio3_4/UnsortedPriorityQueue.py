@@ -14,21 +14,14 @@ class UnsortedPriorityQueue(UnsortedPriorityQueueAbstract,PriorityQueueBase):
             return "ArrayHeap()"
 
         return f"({', ' .join(list(str(x) for x in self.queue))})"
+
     def is_empty(self) -> bool:
-        return len(self.queue) == 0#retorna True si esta vacia osea == 0 caso contrario False.
+        return len(self.queue) == 0
 
     def add(self, k: Any, v: Any) -> None:
-        self.queue.append((k, v)) # _Item es la clase definida en PriorityQueueBase
-        #        self._upheap(len(self.queue) - 1)  #El nuevo nodo es hoja y hay que dejarlo ordenado.
+        self.queue.append((k, v))
 
     def min(self) -> Tuple[Any]:
-        """ Devuelve una tupla conformada por la clave(K)y valor(V) del ítem con menor valor de
-               clave.
-               Raises:
-               Exception: Arroja excepción si se invoca cuando la estructura está vacía.
-               Returns:
-               Tuple[Any]: Tupla de dos elementos: Clave y Valor del ítem.
-               """
         if self.is_empty():
             raise Exception("Heap vacío. No se puede continuar.")
 
@@ -40,19 +33,14 @@ class UnsortedPriorityQueue(UnsortedPriorityQueueAbstract,PriorityQueueBase):
         del self.queue[min]
         return item
 
-
-
     def remove_min(self) -> Tuple[Any]:
-        try:
-            max = 0
-            for i in range(len(self.queue)):
-                if self.queue[i] < self.queue[max]:
-                    max = i
-            item = self.queue[max]
-            del self.queue[max]
-            return item
-        except IndexError:
-            print()
-            exit()
+        if self.is_empty():
+            raise Exception("Priority queue is empty.")
 
+        self.intercambio(0, len(self.queue) - 1)  # Pone el mínimo valor al final de la lista.
+        item = self.queue.pop()  # Quita el valor final de la lista.
 
+        return (item)
+
+    def intercambio(self, i:int, j:int)-> None:
+        self.queue[i], self.queue[j] = self.queue[j], self.queue[i]

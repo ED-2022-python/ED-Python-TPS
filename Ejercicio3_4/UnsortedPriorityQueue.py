@@ -23,7 +23,7 @@ class UnsortedPriorityQueue(UnsortedPriorityQueueAbstract,PriorityQueueBase):
 
     def min(self) -> Tuple[Any]:
         if self.is_empty():
-            raise Exception("Heap vacío. No se puede continuar.")
+            raise Exception("Vacío. No se puede continuar.")
 
         min = 0
         for i in range(len(self.queue)):
@@ -35,10 +35,9 @@ class UnsortedPriorityQueue(UnsortedPriorityQueueAbstract,PriorityQueueBase):
 
     def remove_min(self) -> Tuple[Any]:
         if self.is_empty():
-            raise Exception("Priority queue is empty.")
-
-        self.intercambio(0, len(self.queue) - 1)  # Pone el mínimo valor al final de la lista.
-        item = self.queue.pop()  # Quita el valor final de la lista.
+            raise Exception("Priority queue vacia.")
+        self.intercambio(0, len(self.queue) - 1)
+        item = self.queue.pop()
 
         return (item)
 

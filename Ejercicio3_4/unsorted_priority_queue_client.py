@@ -1,10 +1,15 @@
 from UnsortedPriorityQueue import UnsortedPriorityQueue
-print("Clase cliente para UnsortedPriorityQueue")
 
-pd=UnsortedPriorityQueue()
-pd=[]
-pd.add(10)
-pd.add(1)
-pd.add(0)
-pd.add(4)
+pd = UnsortedPriorityQueue()
 
+pd.add(1, 'A')
+pd.add(2, 'B')
+pd.add(3, 'p')
+pd.add(4, 'C')
+pd.add(1233, 'k')
+pd.add(295, 'L')
+
+print(pd)
+print()
+print("Vacio?: ")
+print(pd.is_empty())

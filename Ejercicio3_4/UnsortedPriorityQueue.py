@@ -22,8 +22,37 @@ class UnsortedPriorityQueue(UnsortedPriorityQueueAbstract,PriorityQueueBase):
         #        self._upheap(len(self.queue) - 1)  #El nuevo nodo es hoja y hay que dejarlo ordenado.
 
     def min(self) -> Tuple[Any]:
-        pass
+        """ Devuelve una tupla conformada por la clave(K)y valor(V) del ítem con menor valor de
+               clave.
+               Raises:
+               Exception: Arroja excepción si se invoca cuando la estructura está vacía.
+               Returns:
+               Tuple[Any]: Tupla de dos elementos: Clave y Valor del ítem.
+               """
+        if self.is_empty():
+            raise Exception("Heap vacío. No se puede continuar.")
+
+        min = 0
+        for i in range(len(self.queue)):
+            if self.queue[i] < self.queue[min]:
+                min = i
+        item = self.queue[min]
+        del self.queue[min]
+        return item
+
+
 
     def remove_min(self) -> Tuple[Any]:
-        pass
+        try:
+            max = 0
+            for i in range(len(self.queue)):
+                if self.queue[i] < self.queue[max]:
+                    max = i
+            item = self.queue[max]
+            del self.queue[max]
+            return item
+        except IndexError:
+            print()
+            exit()
+
 

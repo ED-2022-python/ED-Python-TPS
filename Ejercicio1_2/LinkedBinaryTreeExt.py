@@ -1,31 +1,64 @@
 from typing import Any, List
 from LinkedBinaryTreeExtAbstract import LinkedBinaryTreeExtAbstract
-from python_ed_fcad_uner.data_structures import LinkedBinaryTree, BinaryTreeNode
+from python_ed_fcad_uner.data_structures import LinkedBinaryTree, BinaryTreeNode, LinkedQueue
+
 
 class LinkedBinaryTreeExt(LinkedBinaryTree,LinkedBinaryTreeExtAbstract):
-    def hermanos(self, nodo1 : BinaryTreeNode, nodo2: BinaryTreeNode) -> bool: 
-        # si son hijo izquierdo e hijo derecho del mismo nodo padre
-        #Si el nodo que vamos a insertar nodo1 cual es su padre?
-        #nodo 2 cual es su padre? 
-        #si los padres son == entonces 👌 hermanos
-        # si son equals?no son hermanos.
+    def hermanos(self, nodo1 : BinaryTreeNode, nodo2: BinaryTreeNode) -> bool:
         return self._search_parent(nodo1).__eq__(self._search_parent(nodo2))
 
     def hojas(self) -> List[Any]:
-        # un nodo es hoja cuando no tiene hijos. no es padre
-        #
+        queue = LinkedQueue()
+        queue.enqueue(self._root)
+        nodos_hoja = []
+        while not queue.is_empty():
+            current = queue.first()
 
-        pass
+            if current.children_count() == 0:
+                nodos_hoja.append(current.element)
+
+            if current.left_child:
+                queue.enqueue(current.left_child)
+
+            if current.right_child:
+                queue.enqueue(current.right_child)
+
+            queue.dequeue()
+        return nodos_hoja
+
     def internos(self) -> List[Any]:
-        #Si tiene 2 hijos es un nodo interno.
-        #verificar que sea padre y tengo hijos y 2.
-        pass
+        queue = LinkedQueue()
+        queue.enqueue(self._root)
+        nodos_hoja = []
+        while not queue.is_empty():
+            current = queue.first()
 
-    
+            if current.children_count() > 0 and self._search_parent(current) is not None:
+                nodos_hoja.append(current.element)
+
+            if current.left_child:
+                queue.enqueue(current.left_child)
+
+            if current.right_child:
+                queue.enqueue(current.right_child)
+
+            queue.dequeue()
+        return nodos_hoja
+
     def profundidad(self, nodo : BinaryTreeNode) -> int:
-
-        
-        pass
+        nivel=0
+        while self._search_parent(nodo) != None:
+            nivel += 1
+            nodo = self._search_parent(nodo)
+        return nivel
     def altura(self, nodo : BinaryTreeNode) -> int:
-        pass
-
+        if nodo.right_child == None and nodo.left_child == None:
+            return 0
+        else:
+            x = -1
+            y = -1
+            if nodo.left_child != None:
+                x = self.altura(nodo.left_child)
+            if nodo.right_child != None:
+                y = self.altura(nodo.right_child)
+            return 1 + max(x,y)

@@ -1,4 +1,4 @@
-from Ejercicio5_6.PriorityQueueStack import Stack
+from PriorityQueueStack import Stack
 
 pila = Stack()
 print(pila.isEmpty())

@@ -10,7 +10,7 @@ class Stack:
 
     def pop(self):
         if self.stack.empty():
-            print("Pila Vacia!!")
+            print("PILA VACIA!")
             return
 
         self.count += 1
